@@ -1,0 +1,42 @@
+body {
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background: #f4e1c1;
+  color: #3e2a1f;
+}
+
+.queue-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff7e6;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.queue-table th,
+.queue-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #d2b48c;
+}
+
+.queue-table th {
+  background: #c49a6c;
+  color: white;
+  font-weight: bold;
+}
+
+.queue-table tr:nth-child(even) {
+  background: #fff3e0;
+}
+
+.queue-table tr:nth-child(odd) {
+  background: #fbead4;
+}
+
+.list-box {
+  max-height: 600px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 20px;
+}

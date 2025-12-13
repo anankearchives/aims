@@ -1,0 +1,258 @@
+/* ===== CORAL PINK SIDEBAR THEME ===== */
+
+:root {
+    --primary: #ff6b6b;
+    --primary-light: #ff8787;
+    --primary-dark: #ee5a52;
+    --sidebar-bg: #ffe3e3;
+    --sidebar-hover: #fbc4c4;
+    --text-light: #ff8787;
+    --text-secondary: #b2bec3;
+    --text-tertiary: #ffffff;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    background: #fff5f5;
+    padding-left: 70px;
+}
+
+/*  SIDEBAR  */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70px;
+    height: 100vh;
+    background: var(--sidebar-bg);
+    overflow: hidden;
+    box-shadow: 3px 0 15px rgba(255, 107, 107, 0.15);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar:hover {
+    width: 260px;
+}
+
+/*  HEADER SECTION  */
+.sidebar-header {
+    padding: 20px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sidebar-logo-small {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+}
+
+.sidebar-title {
+    opacity: 0;
+    transition: opacity 0.3s;
+    color: var(--text-light);
+    font-weight: 600;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.sidebar:hover .sidebar-title {
+    opacity: 1;
+}
+
+/*  USER INFO  */
+.sidebar-user {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 60px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff9999 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.4);
+}
+
+.user-info {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.sidebar:hover .user-info {
+    opacity: 1;
+}
+
+.user-name {
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: 14px;
+    margin: 0;
+}
+
+.user-role {
+    color: var(--text-secondary);
+    font-size: 12px;
+    margin: 2px 0 0 0;
+}
+
+/*  NAVIGATION LINKS  */
+.sidebar-nav {
+    flex: 1;
+    padding: 10px 10px;
+    overflow-y: auto;
+}
+
+.sidebar-nav::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+    background: rgba(255, 107, 107, 0.3);
+    border-radius: 2px;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    margin-bottom: 4px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.sidebar-item:hover {
+    background: var(--sidebar-hover);
+    color: var(--text-tertiary);
+}
+
+.sidebar-item.active {
+    background:  white;
+    color: var(--sidebar-hover);
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+}
+
+.sidebar:not(:hover) .sidebar-item.active {
+    padding-left: 14px;
+}
+
+/* Remove gap when collapsed so icon stays centered */
+.sidebar:not(:hover) .sidebar-item {
+    gap: 0;
+}
+
+/* Hide span completely when collapsed, not just make it transparent */
+.sidebar:not(:hover) .sidebar-item span {
+    display: none;
+}
+
+
+
+.sidebar-item img,
+.sidebar-item svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    opacity: 0.8;
+}
+
+.sidebar-item:hover img,
+.sidebar-item:hover svg,
+.sidebar-item.active img,
+.sidebar-item.active svg {
+    opacity: 1;
+}
+
+.sidebar-item span {
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.sidebar:hover .sidebar-item span {
+    opacity: 1;
+}
+
+/* Badge for notifications */
+.sidebar-badge {
+    margin-left: auto;
+    background: var(--primary);
+    color: white;
+    font-size: 11px;
+    padding: 3px 7px;
+    border-radius: 12px;
+    font-weight: 700;
+    opacity: 0;
+    transition: opacity 0.3s;
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.4);
+}
+
+.sidebar:hover .sidebar-badge {
+    opacity: 1;
+}
+
+/*  LOGOUT BUTTON  */
+.sidebar-item.logout {
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+    color: #ff8787; /*or fab1a0*/
+}
+
+.sidebar-item.logout:hover {
+    background: rgba(255, 107, 107, 0.15);
+    color: var(--primary-light);
+}
+
+/*  COLLAPSED STATE  */
+.sidebar:not(:hover) .sidebar-item {
+    justify-content: center;
+}
+
+/*  RESPONSIVE  */
+@media (max-width: 768px) {
+    body {
+        padding-left: 0;
+    }
+    
+    .sidebar {
+        width: 0;
+    }
+    
+    .sidebar:hover {
+        width: 260px;
+    }
+}
